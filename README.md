@@ -54,7 +54,7 @@ cp ../env.example .env
 
 4. Add your API keys to `.env`:
 ```env
-GEMINI_API_KEY=AIzaSyCBE2qnM_EP8EjX7N_KeFWVS32HNAp6RYQ
+GEMINI_API_KEY=your_gemini_api_key_here
 GROQ_API_KEY=your_groq_api_key_here
 ```
 
@@ -137,16 +137,16 @@ The application uses a liquid glass design system with:
 
 ### Backend (.env)
 ```env
-PORT=5000
+PORT=3001
 NODE_ENV=development
 FRONTEND_URL=http://localhost:5173
 GROQ_API_KEY=your_groq_api_key_here
-NANO_BANANA_API_KEY=your_nano_banana_api_key_here
+GEMINI_API_KEY=your_gemini_api_key_here
 ```
 
 ### Frontend (.env)
 ```env
-VITE_API_URL=http://localhost:5000/api
+VITE_API_URL=http://localhost:3001/api
 VITE_APP_NAME=Logo Animation Tool
 VITE_APP_VERSION=1.0.0
 ```
