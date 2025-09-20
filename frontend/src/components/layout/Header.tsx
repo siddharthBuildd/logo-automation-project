@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Sparkles } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 
 const Header = () => {
@@ -45,13 +44,6 @@ const Header = () => {
             <a href="#services" className="text-white/70 hover:text-white transition-colors">
               Services
             </a>
-            <Button 
-              variant="hero-primary" 
-              size="lg"
-              onClick={() => navigate('/generate')}
-            >
-              Get Started
-            </Button>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -85,17 +77,6 @@ const Header = () => {
               >
                 Services
               </a>
-              <Button 
-                variant="hero-primary" 
-                size="lg" 
-                className="w-full"
-                onClick={() => {
-                  navigate('/generate');
-                  setIsMenuOpen(false);
-                }}
-              >
-                Get Started
-              </Button>
             </nav>
           </div>
         )}

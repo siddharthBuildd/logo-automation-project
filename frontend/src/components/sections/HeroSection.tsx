@@ -3,6 +3,14 @@ import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-logo-showcase.jpg";
 
 const HeroSection = () => {
+  const handleStartCreating = () => {
+    // Scroll to services section
+    const servicesSection = document.getElementById('services');
+    if (servicesSection) {
+      servicesSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Background Image with Overlay */}
@@ -43,7 +51,12 @@ const HeroSection = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-            <Button variant="hero-primary" size="xl" className="group">
+            <Button 
+              variant="hero-primary" 
+              size="xl" 
+              className="group"
+              onClick={handleStartCreating}
+            >
               Start Creating Now
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
