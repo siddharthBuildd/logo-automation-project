@@ -84,6 +84,7 @@ export const logoApi = {
   async enhanceLogo(file: File, options: {
     enhancement_type?: string;
     style?: string;
+    custom_prompt?: string;
   } = {}): Promise<ApiResponse<LogoResult>> {
     const formData = new FormData();
     formData.append('image', file);

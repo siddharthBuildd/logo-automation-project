@@ -242,7 +242,7 @@ class GeminiService {
       enhancedPrompt += `Apply a ${style} style to the design. `;
     }
     
-    if (modifications.length > 0) {
+    if (modifications && Array.isArray(modifications) && modifications.length > 0) {
       enhancedPrompt += `Make these modifications: ${modifications.join(', ')}. `;
     }
     
@@ -254,7 +254,7 @@ class GeminiService {
 
   // Helper method to create enhancement prompts
   createEnhancementPrompt(options = {}) {
-    const { type = 'quality', style = 'modern' } = options;
+    const { type = 'quality', style = 'modern', custom_prompt = '' } = options;
     
     let prompt = 'Enhance this logo image: ';
     
@@ -276,6 +276,11 @@ class GeminiService {
     prompt += 'Maintain the logo\'s professional appearance, ensure all text remains readable, ';
     prompt += 'preserve the original composition and branding elements, ';
     prompt += 'output should be suitable for professional use.';
+    
+    // Add custom prompt if provided
+    if (custom_prompt && custom_prompt.trim()) {
+      prompt += ` Additionally, please apply these specific custom instructions: ${custom_prompt.trim()}.`;
+    }
     
     return prompt;
   }

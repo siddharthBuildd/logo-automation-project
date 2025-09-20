@@ -14,7 +14,7 @@ class LogoService {
   // Enhance existing logo image
   async enhanceImage(imagePath, options = {}) {
     try {
-      const { type = 'quality', style = 'modern' } = options;
+      const { type = 'quality', style = 'modern', custom_prompt = '' } = options;
       
       // Try Gemini API first for AI-powered enhancement
       if (geminiService.isAvailable()) {

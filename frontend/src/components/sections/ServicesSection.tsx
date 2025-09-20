@@ -39,17 +39,22 @@ const ServicesSection = () => {
   const navigate = useNavigate();
 
   const handleServiceClick = (serviceId: string) => {
+    console.log('Service clicked:', serviceId);
     switch (serviceId) {
       case 'enhance':
+        console.log('Navigating to /enhance');
         navigate('/enhance');
         break;
       case 'generate':
+        console.log('Navigating to /generate');
         navigate('/generate');
         break;
       case 'reference':
+        console.log('Navigating to /reference');
         navigate('/reference');
         break;
       default:
+        console.log('Unknown service:', serviceId);
         break;
     }
   };
@@ -79,9 +84,13 @@ const ServicesSection = () => {
           {services.map((service, index) => (
             <div
               key={service.id}
-              className={`glass-${service.color} glass-hover rounded-2xl p-8 group relative overflow-hidden backdrop-blur-md`}
+              className={`glass-${service.color} glass-hover rounded-2xl p-8 group relative overflow-hidden backdrop-blur-md cursor-pointer`}
               style={{
                 animationDelay: `${index * 0.1}s`,
+              }}
+              onClick={() => {
+                console.log('Card clicked for service:', service.id);
+                handleServiceClick(service.id);
               }}
             >
               {/* Icon */}
@@ -111,9 +120,14 @@ const ServicesSection = () => {
               {/* CTA Button */}
               <Button 
                 variant={service.buttonVariant} 
-                className="w-full group-hover:scale-105 transition-transform duration-300"
+                className="w-full group-hover:scale-105 transition-transform duration-300 cursor-pointer"
                 size="lg"
-                onClick={() => handleServiceClick(service.id)}
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  console.log('Button clicked for service:', service.id);
+                  handleServiceClick(service.id);
+                }}
               >
                 Get Started
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />

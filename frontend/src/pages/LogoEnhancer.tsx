@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { logoApi } from '@/services/logoApi';
 import { useNavigate } from 'react-router-dom';
@@ -16,6 +17,7 @@ const LogoEnhancer = () => {
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [enhancementType, setEnhancementType] = useState('quality');
   const [style, setStyle] = useState('modern');
+  const [customPrompt, setCustomPrompt] = useState('');
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<any>(null);
   const [dragActive, setDragActive] = useState(false);
@@ -111,6 +113,7 @@ const LogoEnhancer = () => {
       const response = await logoApi.enhanceLogo(selectedFile, {
         enhancement_type: enhancementType,
         style: style,
+        custom_prompt: customPrompt,
       });
 
       setResult(response.result);
@@ -295,6 +298,33 @@ const LogoEnhancer = () => {
                     ))}
                   </SelectContent>
                 </Select>
+              </CardContent>
+            </Card>
+
+            {/* Custom Prompt */}
+            <Card className="bg-white/10 backdrop-blur-md border-white/20">
+              <CardHeader>
+                <CardTitle className="text-white">Custom Enhancement Instructions</CardTitle>
+                <CardDescription className="text-slate-300">
+                  Describe specific changes you want to make to your logo (optional)
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <Textarea
+                  value={customPrompt}
+                  onChange={(e) => setCustomPrompt(e.target.value)}
+                  placeholder="e.g., 'Make the colors more vibrant', 'Add a subtle shadow effect', 'Change the font to be more modern'"
+                  className="bg-white/5 border-white/20 text-white placeholder:text-slate-400 min-h-[100px] resize-none"
+                  maxLength={500}
+                />
+                <div className="flex justify-between items-center mt-2">
+                  <p className="text-slate-400 text-xs">
+                    Be specific about the changes you want to see
+                  </p>
+                  <span className="text-slate-400 text-xs">
+                    {customPrompt.length}/500
+                  </span>
+                </div>
               </CardContent>
             </Card>
 
