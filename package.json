@@ -1,0 +1,38 @@
+{
+  "name": "logo-automation-tool",
+  "version": "1.0.0",
+  "description": "A modern logo creation tool with AI-powered features, featuring Apple-inspired liquid glass design",
+  "main": "backend/src/server.js",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "start": "cd backend && npm start",
+    "build": "cd frontend && npm run build",
+    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "logo",
+    "ai",
+    "design",
+    "automation",
+    "gemini",
+    "react",
+    "nodejs",
+    "tailwind"
+  ],
+  "author": "Siddharth Shekhar",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/siddharthshekhar/logo-automation-tool.git"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "name": "logo-automation-backend",
+  "version": "1.0.0",
+  "description": "Backend API for Logo Animation Tool with AI-powered features",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "logo",
+    "ai",
+    "design",
+    "automation",
+    "api"
+  ],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@google/genai": "^1.20.0",
+    "axios": "^1.12.2",
+    "canvas": "^2.11.2",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0",
+    "fabric": "^6.7.1",
+    "multer": "^2.0.2",
+    "sharp": "^0.34.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
